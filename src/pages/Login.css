@@ -1,0 +1,764 @@
+
+/* =========================================
+   YUDU LOGIN PAGE
+========================================= */
+
+.yudu-login-page {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 48% 52%;
+  background: #faf9ff;
+  color: #211638;
+  font-family: inherit;
+  overflow: hidden;
+}
+
+/* LEFT PURPLE PANEL */
+
+.yudu-login-brand-panel {
+  position: relative;
+  min-height: 100vh;
+  padding: 32px clamp(25px, 5vw, 65px) 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(
+      circle at 95% 7%,
+      rgba(255,255,255,.12) 0,
+      rgba(255,255,255,.12) 25%,
+      transparent 25.2%
+    ),
+    linear-gradient(145deg, #46118e 0%, #6420c0 48%, #7928e7 100%);
+}
+
+.yudu-login-brand-panel::before {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  top: -300px;
+  right: -200px;
+  background: rgba(255,255,255,.055);
+  pointer-events: none;
+}
+
+.yudu-login-brand-panel::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  bottom: -275px;
+  left: -170px;
+  border: 1px solid rgba(255,255,255,.12);
+  pointer-events: none;
+}
+
+.yudu-login-brand-content,
+.yudu-login-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.yudu-login-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.yudu-login-brand img {
+  width: 43px;
+  height: 43px;
+  object-fit: contain;
+  border-radius: 11px;
+}
+
+.yudu-login-brand > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.yudu-login-brand strong {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1.4px;
+  line-height: 1;
+}
+
+.yudu-login-brand small {
+  margin-top: 5px;
+  font-size: 10px;
+  color: rgba(255,255,255,.8);
+}
+
+.yudu-login-intro {
+  margin-top: clamp(35px, 6vh, 65px);
+  max-width: 470px;
+}
+
+.yudu-login-eyebrow,
+.yudu-form-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .75px;
+}
+
+.yudu-login-eyebrow {
+  color: #e6d3ff;
+  margin-bottom: 13px;
+}
+
+.yudu-login-intro h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(27px, 3vw, 43px);
+  line-height: 1.13;
+  font-weight: 800;
+  letter-spacing: -1.4px;
+}
+
+.yudu-login-intro p {
+  max-width: 440px;
+  margin-top: 13px;
+  color: rgba(255,255,255,.78);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* STAT CARDS */
+
+.yudu-login-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 27px;
+}
+
+.yudu-login-stat {
+  min-height: 100px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 15px;
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform .25s ease, background .25s ease,
+    border-color .25s ease;
+}
+
+.yudu-login-stat:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,.19);
+  border-color: rgba(255,255,255,.3);
+}
+
+.yudu-login-stat > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  color: rgba(255,255,255,.83);
+}
+
+.yudu-login-stat strong {
+  font-size: 24px;
+  line-height: 1.1;
+  color: #fff;
+  font-weight: 800;
+}
+
+.yudu-login-stat small {
+  color: #e4d3ff;
+  font-size: 9px;
+}
+
+/* RECENT PARTNER ACTIVITY */
+
+.yudu-login-activity {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  background: #fff;
+  color: #24183e;
+  box-shadow: 0 10px 30px rgba(30, 8, 65, .12);
+}
+
+.yudu-activity-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.yudu-activity-heading strong {
+  font-size: 11px;
+}
+
+.yudu-activity-heading span {
+  color: #6924c5;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.yudu-activity-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1edf7;
+}
+
+.yudu-activity-row:last-child {
+  border-bottom: 0;
+}
+
+.yudu-partner-avatar {
+  width: 29px;
+  height: 29px;
+  min-width: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eee5ff;
+  color: #6423c4;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.yudu-partner-info {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.yudu-partner-info strong {
+  font-size: 10px;
+}
+
+.yudu-partner-info small {
+  color: #8a8399;
+  font-size: 9px;
+}
+
+.yudu-partner-status {
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.yudu-partner-status.verified,
+.yudu-partner-status.live {
+  color: #07864c;
+  background: #e3f9ed;
+}
+
+.yudu-partner-status.pending {
+  color: #bb7700;
+  background: #fff3d4;
+}
+
+.yudu-login-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 22px;
+  color: rgba(255,255,255,.65);
+  font-size: 9px;
+}
+
+.yudu-login-footer div {
+  display: flex;
+  gap: 13px;
+}
+
+.yudu-login-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.yudu-login-footer a:hover {
+  color: #fff;
+}
+
+/* RIGHT PANEL */
+
+.yudu-login-form-panel {
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 22px;
+  background: #faf9ff;
+}
+
+.yudu-login-form-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 34px;
+  border: 1px solid #eee8f8;
+  border-radius: 19px;
+  background: #fff;
+  box-shadow: 0 15px 45px rgba(74, 37, 125, .09);
+  animation: yuduLoginAppear .45s ease both;
+}
+
+.yudu-form-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 13px;
+  color: #6423c4;
+  background: #f0e9ff;
+}
+
+.yudu-form-icon.success-icon {
+  color: #07945b;
+  background: #e4f8ed;
+}
+
+.yudu-form-eyebrow {
+  color: #8b68c1;
+  margin-bottom: 9px;
+}
+
+.yudu-login-form-card h2 {
+  margin: 0;
+  color: #24163e;
+  font-size: 25px;
+  line-height: 1.25;
+  letter-spacing: -.65px;
+  font-weight: 800;
+}
+
+.yudu-form-description {
+  margin: 9px 0 25px;
+  color: #858095;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.yudu-form-description strong {
+  color: #4b2b83;
+  overflow-wrap: anywhere;
+}
+
+/* INPUTS */
+
+.yudu-field-label {
+  display: block;
+  margin: 17px 0 8px;
+  color: #39304c;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.yudu-input-wrap {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 13px;
+  border: 1px solid #e8e1f1;
+  border-radius: 9px;
+  color: #8b829d;
+  background: #fff;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.yudu-input-wrap:focus-within {
+  border-color: #7c35df;
+  box-shadow: 0 0 0 3px rgba(113, 44, 205, .09);
+}
+
+.yudu-input-wrap input {
+  flex: 1;
+  width: 0;
+  min-width: 0;
+  height: 43px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #24163e;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.yudu-input-wrap input::placeholder {
+  color: #aaa3b7;
+}
+
+.yudu-country-code {
+  color: #40344f;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.yudu-password-toggle {
+  display: grid;
+  place-items: center;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: #90869f;
+  cursor: pointer;
+}
+
+/* OPTIONS */
+
+.yudu-login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 16px 0 20px;
+}
+
+.yudu-remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #686076;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.yudu-remember input {
+  width: 13px;
+  height: 13px;
+  accent-color: #6423c4;
+  cursor: pointer;
+}
+
+.yudu-text-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #6423c4;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.yudu-text-link:hover {
+  text-decoration: underline;
+}
+
+/* BUTTONS */
+
+.yudu-submit-button {
+  width: 100%;
+  min-height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(105deg, #5520a5, #8035ec);
+  color: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 13px rgba(96, 35, 185, .2);
+  transition: transform .2s ease, box-shadow .2s ease,
+    filter .2s ease;
+}
+
+.yudu-submit-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 8px 18px rgba(96, 35, 185, .27);
+}
+
+.yudu-submit-button:active {
+  transform: scale(.98);
+}
+
+.yudu-alternate-login {
+  width: 100%;
+  min-height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 13px;
+  border: 1px solid #e8e1f1;
+  border-radius: 9px;
+  background: #fff;
+  color: #48345f;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.yudu-alternate-login:hover {
+  background: #f7f2ff;
+  border-color: #cbb5ed;
+}
+
+.yudu-login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 17px 0 0;
+  color: #aaa2b5;
+  font-size: 9px;
+}
+
+.yudu-login-divider::before,
+.yudu-login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee9f4;
+}
+
+/* SECURITY AND SUPPORT */
+
+.yudu-security-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 19px;
+  padding: 12px;
+  border-radius: 9px;
+  background: #f4f0fc;
+  color: #766c8b;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.yudu-security-note svg {
+  flex: 0 0 auto;
+  color: #16a276;
+  margin-top: 1px;
+}
+
+.yudu-login-support {
+  margin: 18px 0 0;
+  color: #92899f;
+  font-size: 10px;
+  text-align: center;
+}
+
+.yudu-login-support a {
+  color: #6423c4;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.yudu-login-support a:hover {
+  text-decoration: underline;
+}
+
+.yudu-demo-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: #a39aac;
+  font-size: 9px;
+}
+
+/* VERIFICATION */
+
+.yudu-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 22px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #6423c4;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.yudu-otp-input {
+  width: 100%;
+  height: 53px;
+  padding: 0 15px;
+  border: 1px solid #d8c7f1;
+  border-radius: 10px;
+  outline: none;
+  background: #fbf9ff;
+  color: #4c1b9a;
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 12px;
+  text-align: center;
+}
+
+.yudu-otp-input:focus {
+  border-color: #7834d5;
+  box-shadow: 0 0 0 3px rgba(113, 44, 205, .09);
+}
+
+.yudu-otp-input::placeholder {
+  color: #c9bedb;
+  letter-spacing: 7px;
+}
+
+.yudu-otp-help {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  color: #938ba0;
+  font-size: 10px;
+}
+
+.yudu-trust-device {
+  margin-top: 17px;
+}
+
+/* ERROR STATE */
+
+.yudu-form-error {
+  margin: 0 0 16px;
+  padding: 11px 12px;
+  border: 1px solid #ffd4d4;
+  border-radius: 9px;
+  background: #fff1f1;
+  color: #cf3434;
+  font-size: 11px;
+  line-height: 1.5;
+  animation: yuduLoginAppear .2s ease both;
+}
+
+/* ANIMATION */
+
+@keyframes yuduLoginAppear {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .yudu-login-page {
+    grid-template-columns: 44% 56%;
+  }
+
+  .yudu-login-brand-panel {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .yudu-login-form-card {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 760px) {
+  .yudu-login-page {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  .yudu-login-brand-panel {
+    min-height: auto;
+    padding: 25px 22px 28px;
+  }
+
+  .yudu-login-intro {
+    margin-top: 30px;
+  }
+
+  .yudu-login-intro h1 {
+    font-size: 30px;
+  }
+
+  .yudu-login-stats {
+    gap: 9px;
+  }
+
+  .yudu-login-stat {
+    min-height: 90px;
+    padding: 12px;
+  }
+
+  .yudu-login-activity {
+    margin-top: 15px;
+  }
+
+  .yudu-login-footer {
+    margin-top: 25px;
+  }
+
+  .yudu-login-form-panel {
+    min-height: auto;
+    padding: 35px 18px 28px;
+  }
+
+  .yudu-login-form-card {
+    max-width: 480px;
+    padding: 27px 23px;
+  }
+}
+
+@media (max-width: 420px) {
+  .yudu-login-brand-panel {
+    padding: 20px 16px 23px;
+  }
+
+  .yudu-login-intro h1 {
+    font-size: 27px;
+  }
+
+  .yudu-login-stat strong {
+    font-size: 21px;
+  }
+
+  .yudu-login-footer {
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .yudu-login-form-card {
+    padding: 24px 19px;
+  }
+
+  .yudu-login-form-card h2 {
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yudu-login-page *,
+  .yudu-login-page *::before,
+  .yudu-login-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
