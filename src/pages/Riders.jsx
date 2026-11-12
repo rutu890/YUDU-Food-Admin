@@ -1,0 +1,5 @@
+import { LockKeyhole } from "lucide-react";
+import { PageHeader,Badge } from "../components/ui";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "../api/services";
+export default function Riders(){const {data=[]}=useQuery({queryKey:["riders"],queryFn:api.riders.list});return <><PageHeader title="Riders" subtitle="Delivery partner onboarding and zone management."/><div className="later-banner"><div className="later-icon"><LockKeyhole size={22}/></div><div><Badge tone="warning">Later release</Badge><h2>Rider management is coming soon</h2><p>The navigation and sample screen are included now. Verification, onboarding and zone assignment will be enabled in a later release.</p></div></div><div className="table-wrap muted-table"><table><thead><tr><th>RIDER</th><th>PHONE</th><th>CITY</th><th>ZONE</th><th>STATUS</th></tr></thead><tbody>{data.map(r=><tr key={r.id}><td><b>{r.name}</b></td><td>{r.phone}</td><td>{r.city}</td><td>{r.zone}</td><td><Badge tone={r.status==="VERIFIED"?"success":"warning"}>{r.status}</Badge></td></tr>)}</tbody></table></div></>;}
